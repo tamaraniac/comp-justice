@@ -160,13 +160,29 @@ what the user says. Press Run to see what the chat bot says.
         print("Hi", yourName, "how are you?")
    else:
       found = False
-      for item in greetings:
-         if item in wordsInSentence:
+      for greetingWord in greetings:
+         if greetingWord in wordsInSentence:
            print("Hi, how are you?")
            found = True
            break
       if not found:
           print(random.choice(questions))
+
+
+This code is recognizing words in the `inputSentence` then deciding what to `print` in response.
+
+- `inputSentence.split()` breaks up the input into distinct words.
+- The first block that starts with `if` is asking if the input sentence contains the word "name".
+
+  - If the word "name" is there, the function `index` tells us where "name" appears. That goes in `nameIndex`.
+  - If the word "is" is just after "name", then we guess that the next word is the user's name. Put that in `yourName`.
+  - Then, print out a greeting for the specific name. (Remember that bots often focus on one word the user says.)
+
+- If the word "name" isn't there, we check all the possible `greetings` words.
+
+  - If one of those greeting words is in the input sentence, then `print` a basic "Hi, how are you?"
+  - If we do find a greeting word, we set a variable that we `found` one. We `break` out of the loop checking the greeting words.   
+  - If we did not find a greeting word (`not found`), then we print a random question back to the user.
 
 
 .. mchoice:: PyGen3_1
@@ -201,4 +217,11 @@ what the user says. Press Run to see what the chat bot says.
     :feedback_c: No, that sentence doesn't contain any of the words in `greetings`
 
     Which of these `inputSentence` options (and you're welcome to try them!) would generate the chatbot saying "Hi, how are you?"
+
+.. mchoice:: PyGen3_4
+    :correct: a
+    :answer_a: True
+    :answer_b: False
+
+    `found` in this program is just a variable, that could be named anything, but it's purpose is to track if we found a greeting word.
 
