@@ -137,7 +137,13 @@ Try answering these questions about the code above.
 Section 2: Creating a little Python chatbot
 ::::::::::::::::::::::::::::::::::::::::::::
 
-Here is a (very) little Python chatbot.
+You have built Chatbots in both Snap! and Charla-bots.
+Here's an example on a little one:
+
+.. image:: figures/Snap-kinda-chatbot.png
+
+Here is a (very) little Python chatbot.  This one is a little more sophisticated than our Snap chatbot -- it can pick out a name from an input sentence, and it can do the equivalent of **respond randomly** that we saw in Charla-bot.
+
 Python here in a Runestone ebook can't receive user input, so let's just change the `inputSentence` variable to represent
 what the user says. Press Run to see what the chat bot says.
 
