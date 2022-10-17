@@ -6,6 +6,7 @@ EBook for "Computing's Impact on the World: From Text to the Web"
        :maxdepth: 2
 
        language.rst
+       html.rst
        snap_account.rst
 
 

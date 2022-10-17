@@ -7,7 +7,7 @@ Section 1: Generating Sentences
 
 We have generated language in several ways in this class already.
 
-One way was with the `simple language generator <https://teaspoon.livecodehosting.com/sentences-html/generator.lcß>`_. We typed in a model (a sentence pattern) and a dictionary of words by parts.
+One way was with the `simple language generator <https://teaspoon.livecodehosting.com/sentences-html/generator.lc>`_. We typed in a model (a sentence pattern) and a dictionary of words by parts.
 
 .. image:: figures/SentenceGenerator.png
 
