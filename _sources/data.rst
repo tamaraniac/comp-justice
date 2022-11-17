@@ -81,18 +81,34 @@ Here's an example on a little one:
 
 Here is a (very) little Python chatbot.  This one is a little more sophisticated than our Snap chatbot -- it can pick out a name from an input sentence, and it can do the equivalent of **respond randomly** that we saw in Charla-bot.
 
-Python here in a Runestone ebook can't receive user input, so let's just change the `inputSentence` variable to represent
-what the user says. Press Run to see what the chat bot says.
-
-.. activecode:: sql1
-   :language: sql
-   :dburl: /_static/billionaires.db
 
    select name
    from billionaires 
    where year=2014 and rank<10;
 
+Python here in a Runestone ebook can't receive user input, so let's just change the `inputSentence` variable to represent
+what the user says. Press Run to see what the chat bot says.
 
+.. activecode:: sql1
+   :language: sql
+   :dburl: bikeshare.db
+
+   select bike_number, max(duration)
+   from trip_data
+   group by bike_number
+   order by max(duration) desc
+   limit 4;
+
+
+.. activecode:: sql2
+   :language: sql
+   :dburl: bikeshare.sqlite
+
+   select bike_number, max(duration)
+   from trip_data
+   group by bike_number
+   order by max(duration) desc
+   limit 4;
 
 .. mchoice:: PyGen3_1
     :correct: a
