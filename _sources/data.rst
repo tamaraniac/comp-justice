@@ -91,7 +91,7 @@ what the user says. Press Run to see what the chat bot says.
 
 .. activecode:: sql1
    :language: sql
-   :dburl: bikeshare.db
+   :dburl: /_static/bikeshare.db
 
    select bike_number, max(duration)
    from trip_data
@@ -102,7 +102,7 @@ what the user says. Press Run to see what the chat bot says.
 
 .. activecode:: sql2
    :language: sql
-   :dburl: bikeshare.sqlite
+   :dburl: /_static/bikeshare.sqlite
 
    select bike_number, max(duration)
    from trip_data
