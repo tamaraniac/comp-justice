@@ -20,7 +20,7 @@ We can also describe the same script as a `pipe` where the billionaires are firs
 .. image:: figures/top-2014-billionaires-script-pipe.png
 
 The SQL Version
-----------------------
+------------------
 
 In the database world, these kinds of queries are typically written in `SQL <https://en.wikipedia.org/wiki/SQL>`_, which stands for `Structured Query Language`.  SQL is a domain-specific languages for managing data in tables.  A database table is different than a CSV file.  One difference is that columns in a database table usually have a type.  You might store numbers in one column, dates in another, and text in yet another. Once set up, you may not put text in a column that can only hold numbers.  Click 'Run' to generate a random sentence.
 
@@ -39,115 +39,138 @@ Here is the SQL code that does the same thing as the Snap programs above. Click 
 
 Try answering these questions about the code above.
 
-.. mchoice:: PyGen1
-    :correct: a
-    :answer_a: They are both variables. `nouns` is a list of nouns, and `noun` is a randomly chosen noun
-    :answer_b: Just the `s`.  They mean the same thing.
-    :answer_c: Both are variables, which hold data in Python
-    :feedback_a: Yes, exactly right.
-    :feedback_b: No, the names of the variables are just chosen to inform the reader.
-    :feedback_c: That's true, but that doesn't get at the purpose of the words.
+.. mchoice:: Sql1star
+    :correct: b
+    :answer_a: It's an error.
+    :answer_b: You get all columns, not just name.
+    :answer_c: You multiply all the values together.
+    :feedback_a: No, it will work.
+    :feedback_b: Yes, asterisk means to match all of the column names.
+    :feedback_c: No, it's not about mathematics.
 
-    What's the difference between `nouns` and `noun` above?
+    What do you think will happen if you replace name by * above? (Yes, it's completely fine to go ahead and TRY it.)
 
-.. mchoice:: PyGen1_2
+.. mchoice:: Sql1noyear
     :correct: c
-    :answer_a: Tells Python that it is going to make a choice among these items
-    :answer_b: Creates a variable
-    :answer_c: Define a list, like our multiline or list blocks in Snap.
-    :feedback_a: No -- the choice comes later
-    :feedback_b: No, the variable name with `=` does that.
-    :feedback_c: That's right.
+    :answer_a: You'll get an error because you have to specify a year.
+    :answer_b: You'll get an error because you need to always use AND in a WHERE clause.
+    :answer_c: You'll get the top 9 rankings from every year in the database.
+    :feedback_a: No -- in fact, you don't have to have a WHERE clause at all.
+    :feedback_b: No, you can use AND or OR, or neither.
+    :feedback_c: Exactly right -- try it!
 
-    What do you think the square brackets [] do in the above Python code?
+    What will happen if the last line was just `where rank<10;` (no year)?
 
-.. mchoice:: PyGen1_3
+.. mchoice:: Sql1NoTable
     :correct: c
-    :answer_a: It generates a random number
-    :answer_b: It's a fairly arbitrary variable name
-    :answer_c: It's the name of the library that contains the function `choice`
-    :feedback_a: No -- the random library can generate a random number, but that's not what random means
-    :feedback_b: No, it's pre-defined in Python.
-    :feedback_c: That's right.
+    :answer_a: It will run the query across all tables in the database.
+    :answer_b: The table billionaires will be assumed.
+    :answer_c: You will get an error.
+    :feedback_a: No, the table name must be specified.
+    :feedback_b: No, because you might have two tables in use (e.g., for a join)
+    :feedback_c: Yes, the error is `no tables specified.` (But you probably tried that and found out already.)
 
-    Take a guess what the word `random` is above?
-
-
-
-Section 2: Using SQL to Process Databases
-::::::::::::::::::::::::::::::::::::::::::::
-
-You have built Chatbots in both Snap! and Charla-bots.
-Here's an example on a little one:
-
-.. image:: figures/select-name-2014-decreasing.png
-
-Here is a (very) little Python chatbot.  This one is a little more sophisticated than our Snap chatbot -- it can pick out a name from an input sentence, and it can do the equivalent of **respond randomly** that we saw in Charla-bot.
+    What happens if you delete line 2?
 
 
-   select name
-   from billionaires 
-   where year=2014 and rank<10;
 
-Python here in a Runestone ebook can't receive user input, so let's just change the `inputSentence` variable to represent
-what the user says. Press Run to see what the chat bot says.
+Section 2: Titanic
+::::::::::::::::::::::
 
-.. activecode:: sql1
+You may remember that we also did several analyses with the list of passengers on the Titanic.  For example, here is a grouping by passenger class.  This is how many there were in each class:
+
+.. image:: figures/titanic-by-pclass.png
+
+In this second example, we can first select by whether or not the passengers survived, and then group by class.
+
+.. image:: figures/titanic-by-pclass-survived.png
+
+Computing the average for each class is left for you to do.
+
+Here are each of these analyses, in SQL. Press `Run` to execute each of them.
+
+The SQL Versions
+------------------
+
+.. activecode:: sqlt1
    :language: sql
-   :dburl: /_static/billionaires.db
+   :dburl: /_static/titanic.db
 
-   select name
-   from billionaires 
-   where year=2014 and rank<10;
+   select count(name),pclass 
+   from titanic 
+   group by pclass;
 
 
-.. activecode:: sql2
+.. activecode:: sqlt2
    :language: sql
-   :dburl: _static/bikeshare.sqlite3
+   :dburl: /_static/titanic.db
 
-   select bike_number, max(duration)
-   from trip_data
-   group by bike_number
-   order by max(duration) desc
-   limit 4;
+   select count(name),pclass 
+   from titanic 
+   where survived=1
+   group by pclass;
 
-.. mchoice:: PyGen3_1
-    :correct: a
-    :answer_a: Checks to see if the input sentence has the word "name" in it.
-    :answer_b: Puts the word "name" into the output
-    :answer_c: Asks the user what their name is
-    :feedback_a: Exactly. `wordsInSentence` is the list of words in the input sentence
-    :feedback_b: No, output is generated with print()
-    :feedback_c: No, nothing here does that.
+Here are some questions about each of these:
 
-    What do you think `if "name" in wordsInSentence` does?
+.. mchoice:: SQLt1name
+    :correct: b
+    :answer_a: It's the index value for this database.
+    :answer_b: It's likely unique.
+    :answer_c: You must always count something when grouping
+    :feedback_a: Maybe it could be, but it isn't here.
+    :feedback_b: That is why we did it.
+    :feedback_c: It's not strictly necessary, but if you don't, you just get one name per class.  Try it!
+
+    Why are we counting name?
 
 .. mchoice:: PyGen3_2
-    :correct: b
-    :answer_a: Lists the questions that the user might ask.
-    :answer_b: Provide possible responses like *respond randomly* in Charla-bots.
-    :answer_c: Makes it possible for the computer to respond to questions.
-    :feedback_a: No, that isn't happening here.
-    :feedback_b: Exactly. Each question is a like another line in *respond randomly*.
-    :feedback_c: No, those aren't questions that the computer can respond to.
+    :correct: a
+    :answer_a: True
+    :answer_b: False.
+    :feedback_a: Not really.  This is a count of the number of parties on the Titanic.
+    :feedback_b: Right. If you look, each row has the number of adults and children. Besides, we can't be sure that the passenger list is right since some people may have got off before crossing the Atlantic.
 
-    What do you think the variable `questions` is doing?
+    True or False: This is a count of the number of people on the Titanic.
 
-.. mchoice:: PyGen3_3
-    :correct: b
-    :answer_a: How are you?
-    :answer_b: Hey, Sup
-    :answer_c: Hola, Dude
-    :feedback_a: No, that doesn't contain any of the words in `greetings`
-    :feedback_b: Yes, because "Sup" is in `greetings`.
-    :feedback_c: No, that sentence doesn't contain any of the words in `greetings`
+Names on the Titanic
+---------------------
 
-    Which of these `inputSentence` options (and you're welcome to try them!) would generate the chatbot saying "Hi, how are you?"
+One of the more interesting analyses that we did with the Titanic data was to look at the most common first names of men vs. women.
 
-.. mchoice:: PyGen3_4
+.. image:: figures/male-names-on-Titanic.png
+
+
+This turns out to be much more difficult in SQL.  SQL can generate substrings, but it can't easiliy split by word. The Snap version is splitting by wording, then grouping and sorting the result. 
+
+Here's an example that's getting close -- picking out the first three characters from all male names on the Titanic.
+
+.. activecode:: sqlt3
+   :language: sql
+   :dburl: /_static/titanic.db
+
+   select substring(name,1,3)
+   from titanic 
+   where sex="male";
+
+Now, we can see adults ("Mr.") vs children ("Mas" for "Master").  But there's not an easy way of getting the second `word`.
+
+.. mchoice:: SQLT3semi
+    :correct: a
+    :answer_a: Yes, it's required.
+    :answer_b: Yes, but it's optional.
+    :answer_c: No, you could leave it out.
+    :feedback_a: Right, because you could have several SQL statements in a single query.
+    :feedback_b: No, it's required.
+    :feedback_c: Try it -- it won't work right.
+
+    Is that semi-colon at the end really necessary?
+
+.. mchoice:: SQLT3programming
     :correct: a
     :answer_a: True
     :answer_b: False
+    :feedback_a: Strictly speaking, it is. It's considered a domain-specific language.
+    :feedback_b: It is a programming language, but it can't do much. It's considered a declarative language because you declare what you want.
 
-    `found` in this program is just a variable, that could be named anything, but it's purpose is to track if we found a greeting word.
+    True or False: SQL is a programming language.
 
