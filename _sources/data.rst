@@ -86,7 +86,7 @@ what the user says. Press Run to see what the chat bot says.
 
 .. activecode:: sql1
    :language: sql
-   :dburl: figures/billionaires.db
+   :dburl: http://teaspoon.livecodehosting.com/billionaires.db
 
    select name
    from billionaires 
