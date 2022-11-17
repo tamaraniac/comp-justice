@@ -91,13 +91,11 @@ what the user says. Press Run to see what the chat bot says.
 
 .. activecode:: sql1
    :language: sql
-   :dburl: /_static/bikeshare.sqlite3
+   :dburl: /_static/billionaires.db
 
-   select bike_number, max(duration)
-   from trip_data
-   group by bike_number
-   order by max(duration) desc
-   limit 4;
+   select name
+   from billionaires 
+   where year=2014 and rank<10;
 
 
 .. activecode:: sql2
