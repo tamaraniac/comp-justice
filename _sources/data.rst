@@ -2,37 +2,40 @@
 Chapter 3: Tables of Data
 =======================================
 
-In this class, we started out talking about how characters were represented on the computer, and how that choice (e.g., between ASCII and Unicode) can be a barrier to some people's access to computing. We considered how computers might recognize and generate sentences, and about the challenges of understanding different dialects of English with the same language model. We then moved to the Internet and the Web, tracing its history and how grounded it was in English and male culture (e.g., the history of BASIC at Dartmouth). We wrote programs to pull data out of the Web (e.g., pulling out URLs and web-scraping) and to generate HTML for the Web. In this last section of the course, we have written programs to analyze data from the Web.
+In this class, we started out talking about how characters were represented on the computer, and how that choice (e.g., between ASCII and Unicode) can be a barrier to some people's access to computing. We considered how computers might recognize and generate sentences, and about the challenges of understanding different dialects of English with the same language model. We then moved to the Internet and the Web, tracing its history and how grounded it was in English and male culture (e.g., the history of BASIC at Dartmouth). We wrote programs to pull data out of the Web (e.g., pulling out URLs and web-scraping) and to generate HTML for the Web. In this latest section of the course, we have written programs to analyze data from the Web.
 
-Section 1: CSV Files
+Section 1: Billionaires
 ::::::::::::::::::::::::::::::::
 
-In this class, we have been writing Snap programs to take apart and analyze CSV files.
+In this class, we have been writing Snap programs to take apart and analyze CSV files. In this ebook, we'll be using the databases and blocks found in the `Database Microworld with Titanic <https://snap.berkeley.edu/project?username=guzdial&projectname=Database%20Microworld%20with%20Titanic%20for%20Ebook>`_ project.  For example, here's a script that selects the billionaires from 2014, sorts those billionaires in terms of their rank (in column B), then selects just the names.
 
-.. image:: figures/picking-words-from-variables.png
+.. image:: figures/top-2014-billionaires-script.png
 
+The list is long -- 16543 names.  We can get Snap to show us all of them. Here's what the top of that list looks like.
 
-The Python Version V1
+.. image:: figures/top-2014-billionaires.png
+
+We can also describe the same script as a `pipe` where the billionaires are first selected, then sorted, and then the names selected out.
+
+.. image:: figures/top-2014-billionaires-script-pipe.png
+
+The SQL Version
 ----------------------
 
-The below program does the same thing in Python.  Click 'Run' to generate a random sentence.
+In the database world, these kinds of queries are typically written in `SQL <https://en.wikipedia.org/wiki/SQL>`_, which stands for `Structured Query Language`.  SQL is a domain-specific languages for managing data in tables.  A database table is different than a CSV file.  One difference is that columns in a database table usually have a type.  You might store numbers in one column, dates in another, and text in yet another. Once set up, you may not put text in a column that can only hold numbers.  Click 'Run' to generate a random sentence.
 
-.. activecode:: pysentencegen
-   :language: python
-   
-   import random
-   
-   nouns = ["dog","cat","bat"]
-   verbs = ["jumps", "runs", "shouts"]
-   adverbs = ["slowly", "quickly", "lazily"]
-   articles = ["The","A"]
-   
-   noun = random.choice(nouns)
-   verb = random.choice(verbs)
-   adverb = random.choice(adverbs)
-   article=random.choice(articles)
-   
-   print(article,noun,verb,adverb)
+Database tables can be set up to have indices. An index (which can be one variable or a set of variables) should be unique for each row of a database. For example, an ID number associated with a customer or office could be an index. Access via an index is especially fast, much faster than searching the CSV table for information.
+
+Here is the SQL code that does the same thing as the Snap programs above. Click the Run button to execute it.
+
+.. activecode:: sql1
+   :language: sql
+   :dburl: /_static/billionaires.db
+
+   select name
+   from billionaires 
+   where year=2014 and rank<10;
+
 
 Try answering these questions about the code above.
 
