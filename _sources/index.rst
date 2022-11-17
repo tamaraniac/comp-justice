@@ -1,5 +1,5 @@
 ==================================================================
-EBook for "Computing's Impact on the World: From Text to the Web"
+EBook for "Computing's Impact on Justice: From Text to the Web"
 ==================================================================
 
  .. toctree::
@@ -7,6 +7,7 @@ EBook for "Computing's Impact on the World: From Text to the Web"
 
        language.rst
        html.rst
+       data.rst
        snap_account.rst
 
 
