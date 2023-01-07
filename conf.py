@@ -297,5 +297,5 @@ htmlhelp_basename = 'PythonCoursewareProjectdoc'
 #showeval_div_class = 'runestone explainer alert alert-warning'
 #tabbed_div_class = 'alert alert-warning'
 shelf_section='Computing for the Arts and Sciences'
-course_description='Computing\'s impact on Justice: From Text to the Web'
+course_description='Computings impact on Justice: From Text to the Web'
 key_words="Snap,Python,SQL"
