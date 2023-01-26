@@ -135,7 +135,7 @@ Let's go through how this works:
 Try answering these questions about the Python code.
 
 .. mchoice:: Pyscrape1
-    :correct: a
+    :correct: b
     :answer_a: True. Library names are up to the user.
     :answer_b: False. Library names are specific and must be typed exactly.
     :feedback_a: No. You can call your own libraries and your own variables and functions whatever you want. Python's libraries must be named as specified.
@@ -145,7 +145,7 @@ Try answering these questions about the Python code.
 
 
 .. mchoice:: Pyscrape2
-    :correct: b
+    :correct: a
     :answer_a: True. Function names are defined by the programmer.
     :answer_b: False. This is web scraping, so it must be called web_scraper.
     :feedback_a: Yes. Function names should be understandable, start with a letter, and follow a few other restrictions. But could be just about anything.
