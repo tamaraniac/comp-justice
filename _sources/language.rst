@@ -122,7 +122,7 @@ Try answering these questions about the code above.
     Which of the following is a sentence that could NOT be produced from the code above?
 
 .. mchoice:: PyGen2_3
-    :correct: a
+    :correct: c
     :answer_a: nouns = ["bee","bird","bat"]
     :answer_b: verbs = ["flies", "explores", "roams"]
     :answer_c: adjective = random.choice(adjectives)

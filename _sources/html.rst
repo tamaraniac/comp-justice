@@ -145,7 +145,7 @@ Try answering these questions about the Python code.
 
 
 .. mchoice:: Pyscrape2
-    :correct: a
+    :correct: b
     :answer_a: True. Function names are defined by the programmer.
     :answer_b: False. This is web scraping, so it must be called web_scraper.
     :feedback_a: Yes. Function names should be understandable, start with a letter, and follow a few other restrictions. But could be just about anything.
