@@ -155,7 +155,7 @@ Now this code does not do the exact same thing yet. Let's walk through it
 
 How do we know that we loop around 5 times? The line "for i in range(length):" creates a for loop that goes around "length" number of times doing whatever is after the colon. We start with that variable i equal to 0 and print something out. The next time around, i = 1 and something is printed out (and so on).
 
-If the word is apple, length is equal to 5. The for loop goes until the value of i is equal to or greater to whatever number is inside range(). With that logic, the loop STOPS when i goes to 5. That means it outputs something for i = 0,1,2,3,4. Or, in other words, goes around 5 times.
+If the word is apple, length is equal to 5. The for loop goes until the value of i is equal to or greater to whatever number is inside range(). With that logic, the loop STOPS when i goes to 5. That means it outputs something for i = 0, 1, 2, 3, 4. Or, in other words, goes around 5 times.
 
 What are we outputting? The variable "word" is the word that the user gave us. The phrase "word[i]" gives us a letter from the word. If i = 0, it would be 'a.' If i = 1, it would be 'p.' If i = 2, it would be 'p.' If i = 3, it would be 'l.' If i = 4, it would be 'e.'
 
@@ -166,8 +166,8 @@ Try answering this question about the Python code above.
     :answer_a: Yes, "applee."
     :answer_b: Yes, "applea."
     :answer_c: No.
-    :feedback_a: No, the word apple does not have a sixth letter so word[6] would give an error!
-    :feedback_b: No, the word apple does not have a sixth letter so word[6] would give an error!
+    :feedback_a: No, the word apple does not have a sixth letter so word[5] would give an error!
+    :feedback_b: No, the word apple does not have a sixth letter so word[5] would give an error!
     :feedback_c: Yes, exactly right.
 
      If the word is apple, would a for loop that has range(6) work? If so, what would the output be?
@@ -187,7 +187,7 @@ Here is the Python code that matches the Snap project above.
     print()
 
 Now there are two for loops and we have our right triangle. Here a few hints about how this works:    
-  - once the first for loop is entered, the second for loop is entered and runs COMPLETELY (j = 1,j = 2,j = 3,...) before the first for loop "loops"
+  - once the first for loop is entered, the second for loop is entered and runs COMPLETELY (j = 1, j = 2, j = 3,...) before the first for loop "loops"
   - i changes every time! that means the number of times the second for loop "loops" also changes every time
     - when i = 0, j runs once
     - when i = 1, j runs twice
