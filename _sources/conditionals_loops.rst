@@ -1,11 +1,17 @@
 =======================================
-Chapter #: Conditionals and Loops
+Chapter 4: Conditionals and Loops
 =======================================
+
+*Chapter written by Chloe Nguyen*
+
+In the previous chapters, you have explored how to map from Snap code into Python, SQL, and HTML code.  The idea is to make sense of textual programming language based on what you know from Snap.
+
+In this chapter, we reverse the process. We are going to start with two key ideas in programming languages (textual or block-based): Conditionals and loops. We use both Snap and Python to provide examples.
 
 Section 1: Conditionals
 ::::::::::::::::::::::::::::
 
-Conditionals are also known as if clauses and we use them all the time to express that one thing depends on something else. This idea transfers to programming! 
+Conditionals are also known as *if clauses* and we use them all the time to express that one thing depends on something else. This idea transfers to programming.
 
 Let's start with the "if" statement. If you ask someone how their day is, your answer depends on their response. You wouldn't say "Yay!" if someone told you that they had a bad day (hopefully). You would only say "Yay!" if someone says they are "Good."
 
@@ -16,32 +22,69 @@ Finally, there is the "else" clause. You check and the answer is not "Good" or "
 
 The Snap Version
 --------------------
-.. image:: ADD_IN
+.. image:: figures/snapExample1.png
 
-Here is a `project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example1>`_ that shows the logic from above.
+Here is a `simple dialog project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example1>`_ that shows the logic from above.  Here's what it looks when running.
+
+.. image:: figures/SnapExample1-running.png
 
 The Python Version
 --------------------
 
 The below program does the same thing in Python.  Click 'Run' to have a conversation.
 
-.. activecode:: IfStatements
+.. activecode:: ifstatements
    :language: python
 
-  answer = input('Hello! How are you?')
-
-  if 'Good' in answer:
+   answer = input('Hello! How are you?')
+  
+   if 'Good' in answer:
       print('Yay!')
-  elif 'Bad' in answer:
+   elif 'Bad' in answer:
       print('Oh no, at least we beat OSU in hockey :)')
-  else:
+   else:
       print('I do not know how to respond to that.');
 
 Let's look at this syntax. The first if statment is checking to see if the word "Good' is in the answer, which was input from the user. "Elif" stands for else if and checks for "Bad" in the answer as long as "Good" was not found. Finally, "else" tells the user that the computer has no idea how to respond to what the user inputted.
 
+.. mchoice:: PyIf1-answer
+    :correct: c
+    :answer_a: A built-in (like in Snap) that contains what the user types.
+    :answer_b: A special variable that prompts the user for input.
+    :answer_c: That is not a valid month.
+    :answer_d: A number representing the number of characters typed
+    :feedback_a: No, answer is not built-in here.
+    :feedback_b: No, that's what the function input() does.
+    :feedback_c: Yes, answer is a variable that contains the string input by the user.
+    :feedback_d: No, it is a string returned by input().
+
+    What is *answer* in the above code?
+
+.. mchoice:: PyIf2-answer
+    :correct: a
+    :answer_a: Yay!
+    :answer_b: Oh no, at least we beat OSU in hockey :)
+    :answer_c: I do not know how to respond to that.
+    :feedback_a: Yes, because the program looks for 'Good' anywhere in the input
+    :feedback_b: No, that only happens if 'Bad' is in the input
+    :feedback_c: No, the input has 'Good' in it.
+
+    What gets printed if you input to the above program "It was a Good Day!"?
+
+.. mchoice:: PyIf3-answer
+    :correct: c
+    :answer_a: Yay!
+    :answer_b: Oh no, at least we beat OSU in hockey :)
+    :answer_c: I do not know how to respond to that.
+    :feedback_a: No, because the program looks for 'Good' anywhere in the input, and the capital G is critical
+    :feedback_b: No, that only happens if 'Bad' is in the input
+    :feedback_c: Yes, the input has 'good' in it and not "Bad" or "Good.""
+
+    What gets printed if you input to the above program "It was a good day!"?
+
 Another Example
 --------------------
-Do you know when you sign up for a new account and have to enter your birthday? Some websites have you put a number for your month, others give you a drop down menu, and still others show a calender. Here is a simple `Snap project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example2>`_ that takes in a number and gives your birth month. Note that instead of an "else if" statement, Snap just has you put an if statement inside of another one. It works the same way! The first if statement is checked before the second one, the second before the third, and so on.
+Do you know when you sign up for a new account and have to enter your birthday? Some websites have you put a number for your month, others give you a drop down menu, and still others show a calender. Here is a simple `Snap project for converting months <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example2>`_ that takes in a number and gives your birth month. Note that instead of an "else if" statement, Snap just has you put an if statement inside of another one. It works the same way! The first if statement is checked before the second one, the second before the third, and so on.
 
 The below program does the same thing in Python.  Click 'Run' to try it out.
 
@@ -49,32 +92,32 @@ The below program does the same thing in Python.  Click 'Run' to try it out.
    :language: python
    
    number = int(input('What month were you born?'))
-
-  if number > 12 or number < 1:
+   
+   if number > 12 or number < 1:
       print('That is not a valid month.')
-  elif number == 1:
+   elif number == 1:
       print('January')
-  elif number == 2:
+   elif number == 2:
       print('February')
-  elif number == 3:
+   elif number == 3:
       print('March')
-  elif number == 4:
+   elif number == 4:
       print('April')
-  elif number == 5:
+   elif number == 5:
       print('May')
-  elif number == 6:
+   elif number == 6:
       print('June')
-  elif number == 7:
+   elif number == 7:
       print('July')
-  elif number == 8:
+   elif number == 8:
       print('August')
-  elif number == 9:
+   elif number == 9:
       print('September')
-  elif number == 10:
+   elif number == 10:
       print('October')
-  elif number == 11:
+   elif number == 11:
       print('November')
-  else:
+   else:
       print('December');
 
 Try answering these questions about the Python code above.
@@ -116,7 +159,20 @@ Try answering these questions about the Python code above.
     :feedback_c: Yes, exactly right.
     
      How would this program change if you were doing days?
-     
+
+.. mchoice:: PyIf-error
+    :correct: a
+    :answer_a: Because we try to change the input() into an integer with int(), and you can't change a month name into an integer.
+    :answer_b: Python is broken.
+    :answer_c: It works if you use lower-case characters.
+    :answer_d: Because the variable *number* can only be a number.
+    :feedback_a: Yes. input() returns a string, and int() changes that into a number, if it can.
+    :feedback_b: No, not in this case.
+    :feedback_c: No, characters can't be changed into numbers.
+    :feedback_d: No, the variable *number* can actually hold a string or a number. The word doesn't matter.
+
+    What happens if you type a month name, like 'September'?  Try it. You get an error. Why?
+
 Section 2: Loops
 ::::::::::::::::::::::::::::
 
@@ -127,9 +183,11 @@ For example, imagine making a circle in Snap. You would move a few steps forward
 
 The Snap Version
 --------------------
-.. image:: ADD_IN
+.. image:: figures/Snap-apple-example.png
 
-Here is a `project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example3>`_ that takes in a word from the user and makes a right triangle out of the letters!
+Here is a `project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example3>`_ that takes in a word from the user and makes a right triangle out of the letters! Try "apple" as in this example, or another word like "dinosaur."
+
+This program has two loops.  The one counts *i* from 1 to the length (in characters) of the input *answer*.  The interior loop counts *j* from 1 to the value of *i*. Inside that, we write the letters of the answer.  So the first time through the loop, i is 1 and j is 1, so we print just one letter. In the second time, i is 2 and j is 1 and then 2.  Third time, i is 3 and j is 1, then 2, then 3.  We use j to reference the character that gets written on the screen.
 
 The Python Version
 --------------------
@@ -157,11 +215,11 @@ How do we know that we loop around 5 times? The line "for i in range(length):" c
 
 If the word is apple, length is equal to 5. The for loop goes until the value of i is equal to or greater to whatever number is inside range(). With that logic, the loop STOPS when i goes to 5. That means it outputs something for i = 0, 1, 2, 3, 4. Or, in other words, goes around 5 times.
 
-What are we outputting? The variable "word" is the word that the user gave us. The phrase "word[i]" gives us a letter from the word. If i = 0, it would be 'a.' If i = 1, it would be 'p.' If i = 2, it would be 'p.' If i = 3, it would be 'l.' If i = 4, it would be 'e.'
+What are we printing? The variable "word" is the word that the user gave us. The phrase "word[i]" gives us a letter from the word. If i = 0, it would be 'a.' If i = 1, it would be 'p.' If i = 2, it would be 'p.' If i = 3, it would be 'l.' If i = 4, it would be 'e.'
 
 Try answering this question about the Python code above.
 
-.. mchoice:: PyIf1
+.. mchoice:: PyIf-loop1
     :correct: c
     :answer_a: Yes, "applee."
     :answer_b: Yes, "applea."
@@ -174,7 +232,7 @@ Try answering this question about the Python code above.
 
 Here is the Python code that matches the Snap project above.
 
-.. activecode:: ForLoops1
+.. activecode:: ForLoops2
    :language: python
    
    word = input('Enter a word: ')
@@ -182,15 +240,15 @@ Here is the Python code that matches the Snap project above.
    length = len(word);
    
    for i in range(length):
-    for j in range(i+1)
+    for j in range(i+1):
        print(word[i], end = '')
     print()
 
 Now there are two for loops and we have our right triangle. Here a few hints about how this works:    
   - once the first for loop is entered, the second for loop is entered and runs COMPLETELY (j = 1, j = 2, j = 3,...) before the first for loop "loops"
   - i changes every time! that means the number of times the second for loop "loops" also changes every time
-    - when i = 0, j runs once
-    - when i = 1, j runs twice
+  - when i = 0, j runs once
+  - when i = 1, j runs twice
     
  
  Try answering these questions about the Python code above.
@@ -206,21 +264,6 @@ Now there are two for loops and we have our right triangle. Here a few hints abo
 
      If i = 2, how many times will the second for loop "loop"?
      
-     .. mchoice:: PyFor2
-    :correct: a
-    :answer_a: a
-               p p 
-               l l l
-    :answer_b: 6 a
-                 p p 
-    :answer_c: a
-               p p 
-               l e
-    :feedback_a: Yes, exactly right.
-    :feedback_b: No. Remember we start with i = 0 so the first for loop is finishing it's third iteration.
-    :feedback_c: No. Think about word[i]. The second for loop just outputs the same letter (word[i]), j (i+1) number of times.
-
-     Let's say the word is apple. If we pause the program after the first for loop is finished a third time (i equals 2 and is about to equal 3), what does the output look like?
      
     
 .. mchoice:: PyFor3
