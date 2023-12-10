@@ -1,70 +1,106 @@
-import os
-import sys
-import pkg_resources
-from socket import gethostname
-
-from paver.easy import options, Bunch
+import paver
+from paver.easy import *
 import paver.setuputils
 
-from runestone import get_master_url
-from runestone import build  # NOQA: F401 -- build is called implicitly by the paver driver.
-from runestone.server import get_dburl
-
 paver.setuputils.install_distutils_tasks()
-sys.path.append(os.getcwd())
+from os import environ, getcwd
+import os.path
+import sys
+from socket import gethostname
+import pkg_resources
+from runestone import get_master_url
 
-# The project name, for use below.
-project_name = 'comp-justice'
+sys.path.append(getcwd())
+sys.path.append("../modules")
 
-master_url = 'http://127.0.0.1:8000'
-if not master_url:
+updateProgressTables = True
+try:
+    from runestone.server.chapternames import populateChapterInfob
+except ImportError:
+    updateProgressTables = False
+
+
+######## CHANGE THIS ##########
+project_name = "comp-justice"
+###############################
+
+master_url = None
+doctrees = "./build/{}/doctrees".format(project_name)
+dynamic_pages = True
+
+if master_url is None:
     master_url = get_master_url()
 
-# The root directory for ``runestone serve``.
+master_app = "runestone"
 serving_dir = "./build/" + project_name
-# The destination directory for ``runestone deploy``.
-dest = "../../published"
+dest = "./published"
 
 options(
-    sphinx=Bunch(docroot=".",),
-
+    sphinx=Bunch(
+        docroot=".",
+    ),
     build=Bunch(
-        builddir=serving_dir,
-        sourcedir="_sources",
-        outdir=serving_dir,
+        builddir="./build/" + project_name,
+        sourcedir="./_sources/",
+        outdir="./build/" + project_name,
         confdir=".",
+        project_name=project_name,
+        doctrees=doctrees,
         template_args={
-            'login_required': 'false',
-            'loglevel': 0,
-            'course_title': project_name,
-            'python3': 'false',
-            'dburl': '',
-            'default_ac_lang': 'python',
-            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
-            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
-            'proxy_uri_files': '/jobe/index.php/restapi/files/',
-            'downloads_enabled': 'false',
-            'enable_chatcodes': 'false',
-            'allow_pairs': 'false',
-            'dynamic_pages': True, # False for local, True for server
-            'use_services': 'false',
-            'basecourse': project_name,
-            'course_id': project_name,
-            # These are used for non-dynamic books.
-            'appname': 'runestone',
-            'course_url': master_url,
-        }
-    )
+            "course_id": project_name,
+            "course_title": "comp-justice",
+            "login_required": "false",
+            "appname": master_app,
+            "loglevel": 10,
+            "course_url": master_url,
+            "use_services": "true",
+            "python3": "true",
+            "dynamic_pages": dynamic_pages,
+            "dburl": "postgresql://runestone@localhost/runestone",
+            "basecourse": "thinkcspy",
+            "downloads_enabled": "false",
+            "default_ac_lang": "python",
+            "enable_chatcodes": "false",
+            "allow_pairs": "false",
+        },
+    ),
 )
 
-# if we are on runestone-deploy then use the proxy server not canterbury
-if gethostname() == 'runestone-deploy':
-    del options.build.template_args['jobe_server']
-    del options.build.template_args['proxy_uri_runs']
-    del options.build.template_args['proxy_uri_files']
+if project_name == "<project_name>":
+    print("Please edit pavement.py and give your project a name")
+    exit()
 
 version = pkg_resources.require("runestone")[0].version
-options.build.template_args['runestone_version'] = version
+options.build.template_args["runestone_version"] = version
 
-# If DBURL is in the environment override dburl
-options.build.template_args['dburl'] = get_dburl(outer=locals())
+if (
+    "DBHOST" in environ
+    and "DBPASS" in environ
+    and "DBUSER" in environ
+    and "DBNAME" in environ
+):
+    options.build.template_args[
+        "dburl"
+    ] = "postgresql://{DBUSER}:{DBPASS}@{DBHOST}/{DBNAME}".format(**environ)
+
+from runestone import build
+
+# build is called implicitly by the paver driver.
+
+template_args = {
+    "course_id": project_name,
+    "course_title": "comp-justice",
+    "login_required": "false",
+    "appname": master_app,
+    "loglevel": 10,
+    "course_url": master_url,
+    "use_services": "true",
+    "python3": "true",
+    "dynamic_pages": dynamic_pages,
+    "dburl": "postgresql://runestone@localhost/runestone",
+    "basecourse": "thinkcspy",
+    "downloads_enabled": "false",
+    "default_ac_lang": "python",
+    "enable_chatcodes": "false",
+    "allow_pairs": "false",
+}
