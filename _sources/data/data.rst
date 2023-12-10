@@ -9,15 +9,15 @@ Section 1: Billionaires
 
 In this class, we have been writing Snap programs to take apart and analyze CSV files. In this ebook, we'll be using the databases and blocks found in the `Database Microworld with Titanic <https://snap.berkeley.edu/project?username=guzdial&projectname=Database%20Microworld%20with%20Titanic%20for%20Ebook>`_ project.  For example, here's a script that selects the billionaires from 2014, sorts those billionaires in terms of their rank (in column B), then selects just the names.
 
-.. image:: figures/top-2014-billionaires-script.png
+.. image:: ../figures/top-2014-billionaires-script.png
 
 The list is long -- 16543 names.  We can get Snap to show us all of them. Here's what the top of that list looks like.
 
-.. image:: figures/top-2014-billionaires.png
+.. image:: ../figures/top-2014-billionaires.png
 
 We can also describe the same script as a `pipe` where the billionaires are first selected, then sorted, and then the names selected out.
 
-.. image:: figures/top-2014-billionaires-script-pipe.png
+.. image:: ../figures/top-2014-billionaires-script-pipe.png
 
 The SQL Version
 ------------------
@@ -79,11 +79,11 @@ Section 2: Titanic
 
 You may remember that we also did several analyses with the list of passengers on the Titanic.  For example, here is a grouping by passenger class.  This is how many there were in each class:
 
-.. image:: figures/titanic-by-pclass.png
+.. image:: ../figures/titanic-by-pclass.png
 
 In this second example, we can first select by whether or not the passengers survived, and then group by class.
 
-.. image:: figures/titanic-by-pclass-survived.png
+.. image:: ../figures/titanic-by-pclass-survived.png
 
 Computing the average for each class is left for you to do.
 
@@ -137,7 +137,7 @@ Names on the Titanic
 
 One of the more interesting analyses that we did with the Titanic data was to look at the most common first names of men vs. women.
 
-.. image:: figures/male-names-on-Titanic.png
+.. image:: ../figures/male-names-on-Titanic.png
 
 
 This turns out to be much more difficult in SQL.  SQL can generate substrings, but it can't easiliy split by word. The Snap version is splitting by wording, then grouping and sorting the result. 
