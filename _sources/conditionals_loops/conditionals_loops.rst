@@ -22,11 +22,11 @@ Finally, there is the "else" clause. You check and the answer is not "Good" or "
 
 The Snap Version
 --------------------
-.. image:: figures/snapExample1.png
+.. image:: ../figures/snapExample1.png
 
 Here is a `simple dialog project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example1>`_ that shows the logic from above.  Here's what it looks when running.
 
-.. image:: figures/SnapExample1-running.png
+.. image:: ../figures/SnapExample1-running.png
 
 The Python Version
 --------------------
@@ -183,7 +183,7 @@ For example, imagine making a circle in Snap. You would move a few steps forward
 
 The Snap Version
 --------------------
-.. image:: figures/Snap-apple-example.png
+.. image:: ../figures/Snap-apple-example.png
 
 Here is a `project <https://snap.berkeley.edu/project?username=chloeejnguyen&projectname=example3>`_ that takes in a word from the user and makes a right triangle out of the letters! Try "apple" as in this example, or another word like "dinosaur."
 
