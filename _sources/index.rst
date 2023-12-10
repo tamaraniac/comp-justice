@@ -8,7 +8,7 @@ EBook for "Computing's Impact on Justice: From Text to the Web"
        language.rst
        html.rst
        data.rst
-       conditionals_loops.rst
+       conditionals_loops/conditionals_loops.rst
        snap_account.rst
 
 
