@@ -5,8 +5,8 @@ EBook for "Computing's Impact on Justice: From Text to the Web"
  .. toctree::
        :maxdepth: 2
 
-       language.rst
-       html.rst
+       language/toctree.rst
+       html/toctree.rst
        data/toctree.rst
        conditionals_loops/toctree.rst
        snap_account.rst
