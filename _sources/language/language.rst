@@ -191,7 +191,7 @@ This code is recognizing words in the `inputSentence` then deciding what to `pri
   - If we did not find a greeting word (`not found`), then we print a random question back to the user.
 
 
-.. mchoice:: PyGen3_1
+.. mchoice:: Language_1
     :correct: a
     :answer_a: Checks to see if the input sentence has the word "name" in it.
     :answer_b: Puts the word "name" into the output
@@ -202,7 +202,7 @@ This code is recognizing words in the `inputSentence` then deciding what to `pri
 
     What do you think `if "name" in wordsInSentence` does?
 
-.. mchoice:: PyGen3_2
+.. mchoice:: Language_2
     :correct: b
     :answer_a: Lists the questions that the user might ask.
     :answer_b: Provide possible responses like *respond randomly* in Charla-bots.
@@ -213,7 +213,7 @@ This code is recognizing words in the `inputSentence` then deciding what to `pri
 
     What do you think the variable `questions` is doing?
 
-.. mchoice:: PyGen3_3
+.. mchoice:: Language_3
     :correct: b
     :answer_a: How are you?
     :answer_b: Hey, Sup
@@ -224,7 +224,7 @@ This code is recognizing words in the `inputSentence` then deciding what to `pri
 
     Which of these `inputSentence` options (and you're welcome to try them!) would generate the chatbot saying "Hi, how are you?"
 
-.. mchoice:: PyGen3_4
+.. mchoice:: Language_4
     :correct: a
     :answer_a: True
     :answer_b: False
