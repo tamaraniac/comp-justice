@@ -9,7 +9,7 @@ EBook for "Computing's Impact on Justice: From Text to the Web"
        html/toctree.rst
        data/toctree.rst
        conditionals_loops/toctree.rst
-       snap_account.rst
+       snap/snap_account.rst
 
 
 .. Here is were you specify the content and order of your new book.
