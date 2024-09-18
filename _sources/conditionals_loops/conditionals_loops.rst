@@ -1,6 +1,6 @@
-=======================================
-Chapter 4: Conditionals and Loops
-=======================================
+
+Introduction
+::::::::::::::::::::::::::::
 
 *Chapter written by Chloe Nguyen*
 
@@ -253,7 +253,7 @@ Now there are two for loops and we have our right triangle. Here a few hints abo
  
  Try answering these questions about the Python code above.
 
-.. mchoice:: PyFor1
+.. mchoice::  
     :correct: c
     :answer_a: 5 times
     :answer_b: 6 times
