@@ -1,4 +1,7 @@
 
+How to make your account
+:::::::::::::::::::::::::::
+
 In this course, we'll be using `Snap <https://snap.berkeley.edu/index>`_. In order to use Snap and save your projects, you'll need to make an account. To get started, navigate to the sign up page `here <https://snap.berkeley.edu/sign_up>`_.
 
 It will ask you to provide a username, password, month of birth (to verify your age), and an email address.
